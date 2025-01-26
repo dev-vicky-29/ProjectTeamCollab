@@ -44,111 +44,80 @@ const NewProject = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create New Project</h2>
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                Project Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Project Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+    <div className="container-fluid min-vh-100 bg-light">
+      <div className="row justify-content-center align-items-center py-5">
+        <div className="col-md-6">
+          <h2 className="text-center mb-4">Create New Project</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">Project Name</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                id="name" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} 
+                required 
               />
             </div>
-            <div>
-              <label htmlFor="description" className="sr-only">
-                Description
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+            <div className="mb-3">
+              <label htmlFor="description" className="form-label">Description</label>
+              <textarea 
+                className="form-control" 
+                id="description" 
+                rows="3" 
+                value={description} 
+                onChange={(e) => setDescription(e.target.value)} 
+                required 
               ></textarea>
             </div>
-            <div>
-              <label htmlFor="requiredSkills" className="sr-only">
-                Required Skills (comma-separated)
-              </label>
-              <input
-                id="requiredSkills"
-                name="requiredSkills"
-                type="text"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Required Skills (comma-separated)"
-                value={requiredSkills}
-                onChange={(e) => setRequiredSkills(e.target.value)}
+            <div className="mb-3">
+              <label htmlFor="requiredSkills" className="form-label">Required Skills (comma-separated)</label>
+              <input 
+                type="text" 
+                className="form-control" 
+                id="requiredSkills" 
+                value={requiredSkills} 
+                onChange={(e) => setRequiredSkills(e.target.value)} 
+                required 
               />
             </div>
-            <div>
-              <label htmlFor="startDate" className="sr-only">
-                Start Date
-              </label>
-              <input
-                id="startDate"
-                name="startDate"
-                type="date"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
+            <div className="mb-3">
+              <label htmlFor="startDate" className="form-label">Start Date</label>
+              <input 
+                type="date" 
+                className="form-control" 
+                id="startDate" 
+                value={startDate} 
+                onChange={(e) => setStartDate(e.target.value)} 
+                required 
               />
             </div>
-            <div>
-              <label htmlFor="endDate" className="sr-only">
-                End Date
-              </label>
-              <input
-                id="endDate"
-                name="endDate"
-                type="date"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
+            <div className="mb-3">
+              <label htmlFor="endDate" className="form-label">End Date</label>
+              <input 
+                type="date" 
+                className="form-control" 
+                id="endDate" 
+                value={endDate} 
+                onChange={(e) => setEndDate(e.target.value)} 
+                required 
               />
             </div>
-            <div>
-              <label htmlFor="maxTeamSize" className="sr-only">
-                Max Team Size
-              </label>
-              <input
-                id="maxTeamSize"
-                name="maxTeamSize"
-                type="number"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Max Team Size"
-                value={maxTeamSize}
-                onChange={(e) => setMaxTeamSize(e.target.value)}
+            <div className="mb-3">
+              <label htmlFor="maxTeamSize" className="form-label">Max Team Size</label>
+              <input 
+                type="number" 
+                className="form-control" 
+                id="maxTeamSize" 
+                value={maxTeamSize} 
+                onChange={(e) => setMaxTeamSize(e.target.value)} 
+                required 
               />
             </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Create Project
-            </button>
-          </div>
-        </form>
+            <button type="submit" className="btn btn-primary w-100">Create Project</button>
+          </form>
+        </div>
       </div>
     </div>
   );
