@@ -27,29 +27,31 @@ const Dashboard = () => {
   }, [user]);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-          <div className="max-w-md mx-auto">
-            <h1 className="text-2xl font-semibold mb-6">Dashboard</h1>
-            <h2 className="text-xl mb-4">Your Projects</h2>
-            {projects.length > 0 ? (
-              <ul className="space-y-2">
-                {projects.map((project) => (
-                  <li key={project._id} className="bg-gray-100 p-2 rounded">
-                    <Link to={`/projects/${project._id}`} className="text-blue-600 hover:text-blue-800">
-                      {project.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No projects yet.</p>
-            )}
-            <div className="mt-6">
-              <Link to="/projects/new" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                Create New Project
-              </Link>
+    <div className="container-fluid min-vh-100 bg-light">
+      <div className="row justify-content-center align-items-center py-5">
+        <div className="col-md-8">
+          <div className="card shadow-lg">
+            <div className="card-body p-5">
+              <h1 className="card-title text-center mb-4">Dashboard</h1>
+              <h2 className="h3 mb-4">Your Projects</h2>
+              {projects.length > 0 ? (
+                <ul className="list-group mb-4">
+                  {projects.map((project) => (
+                    <li key={project._id} className="list-group-item">
+                      <Link to={`/projects/${project._id}`} className="text-decoration-none text-primary">
+                        {project.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-center">No projects yet.</p>
+              )}
+              <div className="d-grid gap-2">
+                <Link to="/projects/new" className="btn btn-primary btn-lg">
+                  Create New Project
+                </Link>
+              </div>
             </div>
           </div>
         </div>
