@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -43,131 +44,115 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                Name
-              </label>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <h2 className="text-center mb-4">Create your account</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">Name</label>
               <input
                 id="name"
                 name="name"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
+            <div className="mb-3">
+              <label htmlFor="email-address" className="form-label">Email address</label>
               <input
                 id="email-address"
                 name="email"
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
               <input
                 id="password"
                 name="password"
                 type="password"
                 autoComplete="new-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="skills" className="sr-only">
-                Skills (comma-separated)
-              </label>
+            <div className="mb-3">
+              <label htmlFor="skills" className="form-label">Skills (comma-separated)</label>
               <input
                 id="skills"
                 name="skills"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Skills (comma-separated)"
                 value={skills}
                 onChange={(e) => setSkills(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="interests" className="sr-only">
-                Interests (comma-separated)
-              </label>
+            <div className="mb-3">
+              <label htmlFor="interests" className="form-label">Interests (comma-separated)</label>
               <input
                 id="interests"
                 name="interests"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Interests (comma-separated)"
                 value={interests}
                 onChange={(e) => setInterests(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="availability" className="sr-only">
-                Availability (comma-separated days)
-              </label>
+            <div className="mb-3">
+              <label htmlFor="availability" className="form-label">Availability (comma-separated days)</label>
               <input
                 id="availability"
                 name="availability"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Availability (comma-separated days)"
                 value={availability}
                 onChange={(e) => setAvailability(e.target.value)}
               />
             </div>
-            <div>
-              <label htmlFor="experience" className="sr-only">
-                Experience level
-              </label>
+            <div className="mb-3">
+              <label htmlFor="experience" className="form-label">Experience level</label>
               <input
                 id="experience"
                 name="experience"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="form-control"
                 placeholder="Experience level"
                 value={experience}
                 onChange={(e) => setExperience(e.target.value)}
               />
             </div>
-          </div>
 
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Register
-            </button>
-          </div>
-        </form>
+            <div className="d-grid gap-2">
+              <button 
+                type="submit" 
+                className="btn btn-primary btn-lg"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
