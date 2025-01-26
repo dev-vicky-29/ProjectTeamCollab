@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -25,42 +26,46 @@ const Search = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">Search</h1>
-      <form onSubmit={handleSearch} className="mb-8">
-        <div className="flex">
+    <div className="container mt-5">
+      <h1 className="display-4 mb-4">Search</h1>
+      <form onSubmit={handleSearch}>
+        <div className="input-group mb-4">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-grow mr-2 p-2 border rounded"
+            className="form-control"
             placeholder="Search for users or projects..."
           />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+          <button type="submit" className="btn btn-primary">
             Search
           </button>
         </div>
       </form>
       <div>
         {results.map((result) => (
-          <div key={result._id} className="mb-4 p-4 bg-white shadow rounded">
-            <h2 className="text-xl font-semibold mb-2">
-              <Link to={result.type === "user" ? `/users/${result._id}` : `/projects/${result._id}`}>
-                {result.name}
-              </Link>
-            </h2>
-            <p className="text-gray-600 mb-2">{result.type === "user" ? "User" : "Project"}</p>
-            {result.type === "project" && result.description && <p className="mb-2">{result.description}</p>}
-            {result.type === "user" && result.skills && (
-              <div>
-                <p className="font-semibold">Skills:</p>
-                <ul className="list-disc list-inside">
-                  {result.skills.map((skill, index) => (
-                    <li key={index}>{skill}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          <div key={result._id} className="card mb-3">
+            <div className="card-body">
+              <h2 className="card-title mb-3">
+                <Link to={result.type === "user" ? `/users/${result._id}` : `/projects/${result._id}`}>
+                  {result.name}
+                </Link>
+              </h2>
+              <p className="card-text text-muted">{result.type === "user" ? "User" : "Project"}</p>
+              {result.type === "project" && result.description && (
+                <p className="card-text">{result.description}</p>
+              )}
+              {result.type === "user" && result.skills && (
+                <div>
+                  <h5 className="card-subtitle mb-2 text-muted">Skills:</h5>
+                  <ul className="list-group list-group-flush">
+                    {result.skills.map((skill, index) => (
+                      <li key={index} className="list-group-item">{skill}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>
